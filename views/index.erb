@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> recipes </title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <h1>Recipe List</h1>
+
+    <ol class='container'>
+      <%@recipes.each do |recipe|%>
+      <a id='each_page' href="/recipes/<%= recipe['id'] %>">
+         <li id='recipe'><%= recipe['name']%></li>
+        </a>
+      <% end %>
+    </ol>
+    <a class= 'link' href="/recipes">Main</a>
+    <%if @page_number == 0%>
+      <a class = 'link' href="/recipes">Previous Page</a>
+    <%else%>
+      <a class='link' href="/recipes?page=<%=@page_number-1%>">Previous Page</a>
+    <%end%>
+    <a class = 'link' href="/recipes?page=<%=@page_number+1%>">Next Page</a>
+  </body>
+</html>

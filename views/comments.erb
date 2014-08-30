@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  </title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <a class='link' href="/recipes/<%=params[:recipe_id]%>">Go Back</a>
+
+    <form action='/recipes/<%=params[:recipe_id]%>/comments' method='post'>
+      <textarea id = 'textarea' name = 'text' rows = '5' cols = '100'>
+      </textarea>
+    <br>
+      <input class= 'button' type = 'submit'/>
+    </br>
+  </form>
+
+  <p>All comments:</p>
+  <ul>
+    <% @all_comments.each do |comment|%>
+        <li><%= comment['content']%> (<%= comment['time']%>)</li>
+    <%end%>
+  </ul>
+
+
+
+  </body>
+</html>

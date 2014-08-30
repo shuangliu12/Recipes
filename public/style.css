@@ -1,0 +1,35 @@
+body{
+  background-color: tomato;
+  color:lightyellow;
+}
+
+.container li{
+  color:lightyellow;
+}
+
+#each_page{
+  text-decoration: none;
+}
+
+.link{
+  text-decoration: none;
+  color:lightblue;
+  border: 1px solid brown;
+  padding: 5px;
+  background-color: brown;
+  margin-right: 10px;
+}
+
+#recipe{
+  border-bottom: 1px solid brown;
+}
+
+.button{
+  background: lightblue;
+  color:brown;
+}
+
+#textarea{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

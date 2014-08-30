@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> <%= @results[0]['recipe']%> </title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <a class = 'link' href="/recipes">Menu</a>
+    <a class = 'link' href="/recipes/<%=@results[0]['id']%>/comments">Comment</a>
+    <h2><%= @results[0]['recipe']%> </h2>
+      <form action='/recipes/<%=@results[0]['id']%>' method = 'post'>
+        <p><button class= 'button' name = 'votes'>Upvote</button> <%=@results[0]['votes']%> Upvotes</p>
+      </form>
+      <p>
+        <strong>Description:</strong>
+        <%= @results[0]['description']%></P>
+      <p>
+        <strong>Instructions:</strong>
+        <%= @results[0]['instructions']%></P>
+      <p>
+        <strong >Ingredients</strong></p>
+      <ul>
+          <%@results.each do |recipe|%>
+           <li><%=recipe['ingredients']%></li>
+          <%end%>
+      </ul>
+  </body>
+</html>
