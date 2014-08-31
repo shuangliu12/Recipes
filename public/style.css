@@ -3,12 +3,29 @@ body{
   color:lightyellow;
 }
 
-.container li{
+#container li{
   color:lightyellow;
+  background-color: tomato;
 }
+
+#container li:hover{
+  color:lightblue;
+}
+
+#menu a:hover{
+ color:tomato;
+}
+
 
 #each_page{
   text-decoration: none;
+}
+
+.nav{
+  text-decoration: none;
+  background-color: brown;
+  color:lightblue;
+  padding:6px;
 }
 
 .link{
@@ -33,3 +50,4 @@ body{
   margin-top: 20px;
   margin-bottom: 20px;
 }
+

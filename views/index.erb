@@ -2,18 +2,29 @@
 <html lang="en">
   <head>
     <title> recipes </title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/script.js"></script>
+
   </head>
 
   <body>
     <h1>Recipe List</h1>
 
-    <ol class='container'>
+    <ol id='container'>
+    <div id = 'menu'>
       <%@recipes.each do |recipe|%>
       <a id='each_page' href="/recipes/<%= recipe['id'] %>">
          <li id='recipe'><%= recipe['name']%></li>
-        </a>
+      </a>
+
+      <a href="/recipes/<%= recipe['id'] %>">
+        <%= recipe['description']%></a>
       <% end %>
+
+    </div>
     </ol>
     <a class= 'link' href="/recipes">Main</a>
     <%if @page_number == 0%>
@@ -22,5 +33,6 @@
       <a class='link' href="/recipes?page=<%=@page_number-1%>">Previous Page</a>
     <%end%>
     <a class = 'link' href="/recipes?page=<%=@page_number+1%>">Next Page</a>
+
   </body>
 </html>

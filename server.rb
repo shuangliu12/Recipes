@@ -14,7 +14,7 @@ end
 get '/recipes' do
   page = params[:page]
   @page_number = page.to_i || 0
-  sql = 'SELECT name, id FROM recipes ORDER BY name LIMIT 20 OFFSET $1'
+  sql = 'SELECT name, id, description FROM recipes ORDER BY name LIMIT 20 OFFSET $1'
   db_connection do |conn|
     @recipes = conn.exec(sql,[@page_number*20])
   end

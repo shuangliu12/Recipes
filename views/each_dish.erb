@@ -6,8 +6,10 @@
   </head>
 
   <body>
+    <div class='nav'>
     <a class = 'link' href="/recipes">Menu</a>
     <a class = 'link' href="/recipes/<%=@results[0]['id']%>/comments">Comment</a>
+    </div>
     <h2><%= @results[0]['recipe']%> </h2>
       <form action='/recipes/<%=@results[0]['id']%>' method = 'post'>
         <p><button class= 'button' name = 'votes'>Upvote</button> <%=@results[0]['votes']%> Upvotes</p>
