@@ -11,21 +11,25 @@
   </head>
 
   <body>
-    <h1>Recipe List</h1>
+    <h1 id='recipe_list'>Recipe List</h1>
 
-    <ol id='container'>
-    <div id = 'menu'>
+     <form id='search' method="get" action = "/recipes/search?query=@query" >
+      <label for="query">Search: </label>
+      <input type="text" name="query"/>
+      <input type="submit" value="Search" /></a>
+    </form>
+
+    <ul id='container'>
+      <%count = 1%>
       <%@recipes.each do |recipe|%>
-      <a id='each_page' href="/recipes/<%= recipe['id'] %>">
-         <li id='recipe'><%= recipe['name']%></li>
+      <a class='each_page' href="/recipes/<%= recipe['id'] %>">
+         <li id='recipe'><%=@page_number*20+ count%>. <%= recipe['name']%></li>
       </a>
-
-      <a href="/recipes/<%= recipe['id'] %>">
-        <%= recipe['description']%></a>
+      <%count+=1%>
       <% end %>
+    </ul>
 
-    </div>
-    </ol>
+    <div id= 'pagination'>
     <a class= 'link' href="/recipes">Main</a>
     <%if @page_number == 0%>
       <a class = 'link' href="/recipes">Previous Page</a>
@@ -33,6 +37,6 @@
       <a class='link' href="/recipes?page=<%=@page_number-1%>">Previous Page</a>
     <%end%>
     <a class = 'link' href="/recipes?page=<%=@page_number+1%>">Next Page</a>
-
+    <div>
   </body>
 </html>

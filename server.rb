@@ -14,12 +14,27 @@ end
 get '/recipes' do
   page = params[:page]
   @page_number = page.to_i || 0
-  sql = 'SELECT name, id, description FROM recipes ORDER BY name LIMIT 20 OFFSET $1'
+  sql = 'SELECT name, id, description FROM recipes ORDER BY name LIMIT 25 OFFSET $1'
   db_connection do |conn|
     @recipes = conn.exec(sql,[@page_number*20])
   end
   erb :index
 end
+
+
+  #search function
+
+get '/recipes/search' do
+  @query = params[:query]
+  search = 'SELECT name, id FROM recipes WHERE to_tsvector(name) @@ plainto_tsquery($1)'
+  db_connection do |conn|
+    @results = conn.exec_params(search,[@query])
+  end
+  @results.to_a
+  erb :search
+
+end
+
 
 get '/recipes/:recipe_id' do
   recipe_id = params[:recipe_id]

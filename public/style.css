@@ -3,21 +3,23 @@ body{
   color:lightyellow;
 }
 
+
 #container li{
   color:lightyellow;
   background-color: tomato;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  list-style-type: none;
+  margin-left: -40px;
 }
 
 #container li:hover{
   color:lightblue;
 }
 
-#menu a:hover{
- color:tomato;
-}
 
 
-#each_page{
+.each_page{
   text-decoration: none;
 }
 
@@ -35,6 +37,19 @@ body{
   padding: 5px;
   background-color: brown;
   margin-right: 10px;
+}
+
+#pagination{
+  margin-top: 20px;
+}
+
+#search a{
+  text-decoration: none;
+  color:lightyellow;
+}
+
+#search a:hover{
+  text-decoration: underline;
 }
 
 #recipe{
